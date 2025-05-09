@@ -1,0 +1,1 @@
+TRUNCATE TABLE mpc_orbits, obs_ingest, obs_orbit_data, obs_sbn, orbit_data, orbit_fit_statistics, orbit_magnitudes, orbit_parent_planets, orbit_software_data, orbit_system_data, orbit_type, primary_objects; 
