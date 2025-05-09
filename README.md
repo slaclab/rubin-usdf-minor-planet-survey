@@ -12,9 +12,14 @@ The current state replication status dashboard is [here](https://sbnmpc.astro.um
 
 To update schemas obtain the changes from SBN run the script file manally.  CNPG runs script as a one time bootstrap so that is why it must be manual.  Example below.
 
-`cat mpc_orbits_add_new_columns_and_comments.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn -a -q`
-
-cat obscodes.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mcp_sbn -a
+```
+cat create_mpc_sbn146_all_tables_schemas.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat create_mpc_sbn_obs_alterations_tables_schemas.sql |k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat create_table_mpc_orbits.sql | | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat mpc_orbits_add_new_columns_and_comments.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat obscodes.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat grants.sql | | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+```
 
 Also add the or edit the .sql file and update kustomize so if the database needs to be rebuilt in the future the changes get captured
 
