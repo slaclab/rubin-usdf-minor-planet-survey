@@ -45,14 +45,13 @@ Setup is detailed in https://rubinobs.atlassian.net/browse/DM-46972
 
 To setup schema:
 
-'''
+```
 cat obs_ingest.sql | kubectl exec -it mpc-sandbox-prod-2 -n mpc-sandbox-prod -- psql -d mpc_obs_sandbox
 cat orbit_table_scripts.sql | kubectl exec -it mpc-sandbox-prod-2 -n mpc-sandbox-prod -- psql -d mpc_obs_sandbox
 cat obs_obit_data.sql | kubectl exec -it mpc-sandbox-prod-2 -n mpc-sandbox-prod -- psql -d mpc_obs_sandbox
 cat obs_sbn.sql | kubectl exec -it mpc-sandbox-prod-2 -n mpc-sandbox-prod -- psql -d mpc_obs_sandbox
 cat mpc_orbits.sql | kubectl exec -it mpc-sandbox-prod-2 -n mpc-sandbox-prod -- psql -d mpc_obs_sandbox
-
-'''
+```
 
 Below is subscription configuration with password removed.  Username and password is stored in Vault at vault kv get secret/rubin/usdf-minor-planet-survey/postgres-mpc-sandbox
 
