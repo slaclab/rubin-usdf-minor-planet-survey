@@ -17,6 +17,7 @@ cat create_mpc_sbn146_all_tables_schemas.sql | k exec -it mpcorb-1 -n mpcorb-rep
 cat create_mpc_sbn_obs_alterations_tables_schemas.sql |k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
 cat create_table_mpc_orbits.sql | | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
 cat mpc_orbits_add_new_columns_and_comments.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat mpc_sbn_add_new_columns_to_obs_sbn_table.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
 cat obscodes.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
 cat grants.sql | | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
 ```
