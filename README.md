@@ -19,6 +19,7 @@ cat create_table_mpc_orbits.sql | | k exec -it mpcorb-1 -n mpcorb-replica -- psq
 cat mpc_orbits_add_new_columns_and_comments.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
 cat mpc_sbn_add_new_columns_to_obs_sbn_table.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
 cat obscodes.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat minor_planet_names.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
 cat grants.sql | | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
 ```
 
