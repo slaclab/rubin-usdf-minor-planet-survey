@@ -27,15 +27,7 @@ Also add the or edit the .sql file and update kustomize so if the database needs
 
 # Logical Replication Subscription
 
-To create a subscription access postgres with psql.  `\c mpc_sbn` to connect to the `mpc_sbn` schema.  
-
-To see active subscriptions enter.  Access password from USDF Vault and update.
-
-```
-CREATE SUBSCRIPTION sbn146_rubin_usdf_other_tables_sub CONNECTION'host=musforti.astro.umd.edu port=5432 dbname=mpc_sbn user=sbnmastrubin password=<update> PUBLICATION sbn146_other_tables_pub WITH(copy_data=true, enabled=true);
-
-CREATE SUBSCRIPTION sbn146_rubin_usdf_obs_table_sub CONNECTION'host=musforti.astro.umd.edu port=5432 dbname=mpc_sbn user=sbnmastrubin password=<update> PUBLICATION sbn146_obs_table_pub WITH(copy_data=true, enabled=true);
-```
+To create a subscription access postgres with psql.  `\c mpc_sbn` to connect to the `mpc_sbn` schema.  Subscription sql is in prod/sql/subscription.sql.  Add password from vault.
 
 To validate active subscription run `select * from pg_subscription;`
 
