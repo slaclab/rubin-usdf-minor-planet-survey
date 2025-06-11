@@ -1,3 +1,4 @@
+--rubin
 GRANT SELECT ON public.current_identifications TO rubin;
 GRANT SELECT ON public.mpc_orbits  TO rubin;
 GRANT SELECT ON public.neocp_els TO rubin;
@@ -13,3 +14,6 @@ GRANT SELECT ON public.obs_alterations_redesignations TO rubin;
 GRANT SELECT ON public.obs_alterations_unassociations TO rubin;
 GRANT SELECT ON public.obs_sbn TO rubin;
 GRANT SELECT ON public.primary_objects TO rubin;
+
+--rubin-admin
+GRANT SELECT, UPDATE, DELETE, INSERT ON ALL TABLES in SCHEMA public TO rubin_rw;
