@@ -109,7 +109,8 @@ CREATE TABLE "public"."obs_ingest" (
   "vel3" numeric,
   "prectime_ades" int2,
   "obssubid" text COLLATE "pg_catalog"."default",
-  "fltr" char(3) COLLATE "pg_catalog"."default"
+  "fltr" char(3) COLLATE "pg_catalog"."default",
+  "obstime_text" text COLLATE "pg_catalog"."default"
 )
 WITH (fillfactor=90)
 ;
