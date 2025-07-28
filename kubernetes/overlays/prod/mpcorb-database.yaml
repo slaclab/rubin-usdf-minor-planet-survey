@@ -6,7 +6,7 @@ metadata:
 spec:
   imageName: ghcr.io/cloudnative-pg/postgresql:16
   enableSuperuserAccess: false
-  instances: 1
+  instances: 2
 
   inheritedMetadata:
     annotations:
