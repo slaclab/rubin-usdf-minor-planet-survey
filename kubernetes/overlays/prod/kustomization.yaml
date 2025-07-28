@@ -2,7 +2,7 @@ namespace: mpcorb-replica
 
 resources:
 - ns.yaml
-- cnpg-database.yaml
+- mpcorb-database.yaml
 - db-svc.yaml
 
 secretGenerator:
