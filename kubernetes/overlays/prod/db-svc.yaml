@@ -8,7 +8,7 @@ metadata:
   name: cnpg-loadbalancer
   namespace: mpcorb-replica
 spec:
-  allocateLoadBalancerNodePorts: true
+  allocateLoadBalancerNodePorts: false
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:
@@ -18,6 +18,7 @@ spec:
       protocol: TCP
       targetPort: 5432
   selector:
-    postgresql: mpcorb
+    cnpg.io/cluster: mpcorb
+    cnpg.io/instanceRole: primary
   sessionAffinity: None
   type: LoadBalancer
