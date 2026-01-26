@@ -15,3 +15,4 @@ ALTER PUBLICATION epo ADD TABLE obs_alterations_unassociations;
 ALTER PUBLICATION epo ADD TABLE obs_sbn;
 ALTER PUBLICATION epo ADD TABLE primary_objects;
 ALTER PUBLICATION epo ADD TABLE minor_planet_names;
+ALTER PUBLICATION epo ADD TABLE comet_names;

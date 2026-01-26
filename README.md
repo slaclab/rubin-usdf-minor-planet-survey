@@ -7,20 +7,21 @@ To access the kuberentes environment login [here](https://k8s.slac.stanford.edu/
 Requirements are [here](https://jira.lsstcorp.org/browse/DM-40702).  Documentation on the setup from SBN is [here](https://sbnwiki.astro.umd.edu/wiki/SBN_MPC_Wiki)  This [doc](https://www.enterprisedb.com/blog/current-state-major-postgresql-upgrades-cloudnativepg-kubernetes) was referenced for setup.
 
 The current state replication status dashboard is [here](https://sbnmpc.astro.umd.edu/MPC_database/postgres_dash.shtml).  This is used to validate replication status.
-
+`
 # Schema Updates
 
-To update schemas obtain the changes from SBN run the script file manally.  CNPG runs script as a one time bootstrap so that is why it must be manual.  Example below.
+To update schemas obtain the changes from SBN run the script file manally.  CNPG runs script as a one time bootstrap so that is why it must be manual.  Example below.  If there is an error that it cannot execute update the commands to reference the primary instance.
 
 ```
-cat create_mpc_sbn146_all_tables_schemas.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
-cat create_mpc_sbn_obs_alterations_tables_schemas.sql |k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
-cat create_table_mpc_orbits.sql | | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
-cat mpc_orbits_add_new_columns_and_comments.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
-cat mpc_sbn_add_new_columns_to_obs_sbn_table.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat create_mpc_sbn146_all_tables_schemas.sql | kubectl exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat create_mpc_sbn_obs_alterations_tables_schemas.sql | kubectl exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat create_table_mpc_orbits.sql | kubectl exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat mpc_orbits_add_new_columns_and_comments.sql | kubectl exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat mpc_sbn_add_new_columns_to_obs_sbn_table.sql | kubectl exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
 cat obscodes.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
-cat minor_planet_names.sql | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
-cat grants.sql | | k exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat minor_planet_names.sql | kubectl exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat comet_names.sql | kubectl exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
+cat grants.sql | | kubectl exec -it mpcorb-1 -n mpcorb-replica -- psql -d mpc_sbn
 ```
 
 Also add the or edit the .sql file and update kustomize so if the database needs to be rebuilt in the future the changes get captured

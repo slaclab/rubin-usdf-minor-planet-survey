@@ -18,3 +18,4 @@ GRANT SELECT ON public.obs_alterations_unassociations TO epo;
 GRANT SELECT ON public.obs_sbn TO epo;
 GRANT SELECT ON public.primary_objects TO epo;
 GRANT SELECT ON public.minor_planet_names TO epo;
+GRANT SELECT ON public.comet_names TO epo;
