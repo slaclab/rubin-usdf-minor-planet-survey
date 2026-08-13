@@ -1,3 +1,5 @@
+# please don't commit here, this repo has been migrated to https://github.com/slaclab/rubin-pg-deploy/tree/main/usdf-minor-planet-survey
+
 # rubin-usdf-minor-planet-survey
 
 This is the repository for the deployment of minor planet database replica for the USDF.  Replication is performed with logical replication using a publisher and subscriber model.   This repo stores the kubernetes manifests and SQL scripts.  Deployments are done currently through make files.

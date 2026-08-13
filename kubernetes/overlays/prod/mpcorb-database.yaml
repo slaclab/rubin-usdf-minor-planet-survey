@@ -4,9 +4,10 @@ metadata:
   name: mpcorb
   namespace: mpcorb-replica
 spec:
-  imageName: ghcr.io/cloudnative-pg/postgresql:16
+  imageName: ghcr.io/cloudnative-pg/postgresql:17
   enableSuperuserAccess: false
   instances: 2
+  enablePDB: true
 
   inheritedMetadata:
     annotations:
@@ -14,10 +15,11 @@ spec:
   
   monitoring:
     enablePodMonitor: true
-
-  nodeMaintenanceWindow:
-    inProgress: false
-    reusePVC: true
+    disableDefaultQueries: false
+    customQueriesConfigMap:
+    - key: queries
+      name: pg-monitoring
+    
 
   postgresql:
     parameters:
@@ -40,7 +42,7 @@ spec:
 
   storage:
     storageClass: wekafs--sdf-k8s01
-    size: 2000Gi
+    size: 5000Gi
 
   bootstrap:
     initdb:
