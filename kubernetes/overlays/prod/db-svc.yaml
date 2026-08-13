@@ -8,7 +8,7 @@ metadata:
   name: cnpg-loadbalancer
   namespace: mpcorb-replica
 spec:
-  allocateLoadBalancerNodePorts: true
+  allocateLoadBalancerNodePorts: false
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pg-monitoring
+  namespace: mpcorb-replica 
+  labels:
+    cnpg.io/reload: ""
+data:
+  queries: |
+    pg_stat_subscription:
+      query: |
+        select subname, 
+          extract(epoch from (now() - latest_end_time)) as lag 
+        from pg_stat_subscription"
+      metrics:
+        - subname:
+            usage: "LABEL"
+            description: "subscription name"
+        - lag:
+            usage: "GAUGE"
+            description: "Logical Replication lag behind publication in seconds"
